@@ -1,0 +1,24 @@
+{
+    "name": "hexlet/code",
+    "bin": [
+        "bin/gendiff"
+    ],
+    "description": "Project 'Difference Calculator'",
+    "type": "training",
+    "license": "MIT",
+    "autoload": {
+        "files": [],
+        "psr-4": {
+            "Hexlet\\Code\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Maaaaaaaad",
+            "email": "wowa-iff@yandex.ru"
+        }
+    ],
+    "require": {
+        "docopt/docopt": "^1.0"
+    }
+}
