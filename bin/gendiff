@@ -36,4 +36,4 @@ $secondFilePath = realpath($args['<secondFile>']);
 
 
 
-//echo difference($firstFilePath, $secondFilePath, $format);
+difference($firstFilePath, $secondFilePath, $format);
