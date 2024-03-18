@@ -7,7 +7,9 @@
     "type": "training",
     "license": "MIT",
     "autoload": {
-        "files": [],
+        "files": [
+            "src/Gendiff.php"
+        ],
         "psr-4": {
             "Hexlet\\Code\\": "src/"
         }
