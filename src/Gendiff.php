@@ -12,32 +12,51 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
+
 use function Functional\map;
 use function Functional\select;
 use function Functional\reject;
 use function Functional\sort;
-use function Functional\select_keys;
 
-function difference( $file1,$file2, $format)
+
+function difference($file1, $file2, $format)
 {
+    $array = [];
+    $array1 = [];
+
 
     $data1 = json_decode(file_get_contents("$file1"), true);
     $data2 = json_decode(file_get_contents("$file2"), true);
 
-    $merge = array_merge($data1,$data2);
+
+    foreach ($data1 as $key => $item) {
+        if (array_key_exists($key, $data2) && $item == $data2[$key]) {
+            $array ["  $key"] = $data2[$key];
+        } elseif (array_key_exists($key, $data2) && $item != $data2[$key]) {
+            $array ["- $key"] = $item;
+        } elseif (!array_key_exists($key, $data2)) {
+            $array ["- $key"] = $item;
+        }
+    }
+
+    foreach ($data2 as $key => $item) {
+        if (array_key_exists($key, $data1) && $item != $data1[$key]) {
+            $array1 ["+ $key"] = $item;
+        } elseif (!array_key_exists($key, $data1)) {
+            $array1 ["+ $key"] = $item;
+        }
+    }
+
+        $merge = array_merge($array, $array1);
 
 
-    
+    map($merge, function ($left, $right) {
+           sort($merge, fn($left, $right) => var_dump($left));
+        });
+
+
+
+
+
 
 }
-
-   /* $usersByAge = array_reduce($year, function ($acc, $year) {
-        if (!array_key_exists($year, $acc)) {
-            $acc[$year] = 0;
-        }
-        $acc[$year]++;
-        return $acc;
-
-    }, []);*/
-
-   // $selected = sort($result, fn ($left, $right) => strcmp($left, $right));
