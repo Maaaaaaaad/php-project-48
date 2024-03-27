@@ -28,6 +28,9 @@ function difference($file1, $file2, $format)
     $data1 = json_decode(file_get_contents("$file1"), true);
     $data2 = json_decode(file_get_contents("$file2"), true);
 
+    ksort($data1, SORT_STRING);
+    ksort($data2, SORT_STRING);
+
 
     foreach ($data1 as $key => $item) {
         if (array_key_exists($key, $data2) && $item == $data2[$key]) {
@@ -47,16 +50,9 @@ function difference($file1, $file2, $format)
         }
     }
 
-        $merge = array_merge($array, $array1);
+    $merge = array_merge($array, $array1);
 
-
-    map($merge, function ($left, $right) {
-           sort($merge, fn($left, $right) => var_dump($left));
-        });
-
-
-
-
+    return json_encode($merge);
 
 
 }
