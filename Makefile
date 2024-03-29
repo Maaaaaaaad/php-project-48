@@ -6,5 +6,7 @@ dump:
 	composer dump-autoloadmake
 lint:
 	composer exec --verbose phpcs -- --standard=PSR12 src bin
-gendif:
+gendiff:
 	./bin/gendiff
+test:
+	composer exec --verbose phpunit tests
