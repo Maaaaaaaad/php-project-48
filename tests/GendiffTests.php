@@ -1,10 +1,11 @@
 <?php
 
+namespace tests\GendiffTests;
 
 
 
 use PHPUnit\Framework\TestCase;
-use function Differ\GenDiff\difference;
+use function Differ\Gendiff\difference;
 
 
 

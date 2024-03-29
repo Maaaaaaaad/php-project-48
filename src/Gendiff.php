@@ -1,6 +1,6 @@
 <?php
 
-namespace Differ\GenDiff;
+namespace Gendiff;
 
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';

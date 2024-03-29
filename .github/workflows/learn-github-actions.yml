@@ -5,6 +5,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - name: Check out repository code
-        uses: composer exec --verbose phpcs -- --standard=PSR12 src bin
+      - uses: actions/checkout@v4
+      - name: Linter tests
+        run: echo "🎉 Linter tests"
+        uses: make lint
