@@ -1,18 +1,18 @@
 <?php
 
 
-namespace Differ\tests\Gendiff;
+
 
 use PHPUnit\Framework\TestCase;
 use function Differ\GenDiff\difference;
 
 
 
-class UtilsTest extends TestCase
+class GendiffTests extends TestCase
 {
 
 
-    public function testReverse(): void
+    public function testGendiff(): void
     {
 
 
