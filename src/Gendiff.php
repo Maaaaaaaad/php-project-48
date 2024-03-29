@@ -1,8 +1,7 @@
 <?php
 
-namespace Differ\src\genDiff;
+namespace Differ\GenDiff;
 
-use Functional\Functional;
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
@@ -11,12 +10,6 @@ if (file_exists($autoloadPath1)) {
 } else {
     require_once $autoloadPath2;
 }
-
-
-use function Functional\map;
-use function Functional\select;
-use function Functional\reject;
-use function Functional\sort;
 
 
 function difference($file1, $file2, $format)
@@ -53,6 +46,5 @@ function difference($file1, $file2, $format)
     $merge = array_merge($array, $array1);
 
     return json_encode($merge);
-
 
 }
