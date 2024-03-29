@@ -19,6 +19,6 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - run: echo "🎉 Linter check"
       - name: Linter check
-        uses: make lint
+        uses: actions/make lint
       - run: echo "💡 The ${{ github.repository }} repository has been checked."
 
