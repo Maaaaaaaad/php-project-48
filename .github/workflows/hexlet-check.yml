@@ -16,9 +16,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - run: echo "🎉 Linter check"
-      - name: Linter check
-        uses: actions/make lint
-      - run: echo "💡 The ${{ github.repository }} repository has been checked."
+      - uses: actions/checkout@v3
 
+      - name: Hexlet project check
+        uses: hexlet/project-action@release
+        with:
+          hexlet-id: ${{ secrets.HEXLET_ID }}
