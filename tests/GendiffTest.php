@@ -4,7 +4,6 @@ namespace tests\GendiffTests;
 
 
 
-
 use PHPUnit\Framework\TestCase;
 use function Differ\Gendiff\difference;
 
@@ -16,8 +15,8 @@ class GendiffTest extends TestCase
     {
 
 
-        $data1 = '/mnt/c/php-project-48/tests/fixtures/file1.json';
-        $data2 = '/mnt/c/php-project-48/tests/fixtures/file2.json';
+        $data1 = __DIR__ . '/../tests/fixtures/file1.json';
+        $data2 = __DIR__ . '/../tests/fixtures/file2.json';
 
 
 
