@@ -29,4 +29,4 @@ jobs:
       - name: Check linter
         run: make lint
       - name: Check PHPunit
-        run: make test
+        uses: php-actions/phpunit@v3
