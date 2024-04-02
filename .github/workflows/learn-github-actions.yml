@@ -13,9 +13,9 @@ jobs:
       - name: Setup PHP with phpcs extension
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: "7.4"
           coverage: none
-          tools: phpcs
+          tools: phpcs, phpunit
 
       - name: Run linters
         uses: wearerequired/lint-action@v2
