@@ -24,7 +24,9 @@ jobs:
         with:
           php-version: "8.3"
           coverage: none
-          tools: phpcs
+          tools: phpcs, phpunit
 
-      - name: build application
+      - name: Check linter
         run: make lint
+      - name: Check linter
+        run: make test
