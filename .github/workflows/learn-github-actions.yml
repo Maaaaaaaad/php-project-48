@@ -2,18 +2,22 @@ name: GitHub project test
 run-name: ${{ github.actor }} is testing 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Check-out-Git-repository:
+    name: Run linters
     runs-on: ubuntu-latest
+
     steps:
-      - name: Setup PHP with PECL extension
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP with phpcs extension
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: imagick, swoole
-      - name: 'Checkout'
-        uses: actions/checkout@v4
-      - name: 'Compose'
-        uses: php-actions/composer@v6
-        with:
-          command: exec --verbose phpcs -- --standard=PSR12 src bin
+          coverage: none
+          tools: phpcs
 
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          php_codesniffer: true
