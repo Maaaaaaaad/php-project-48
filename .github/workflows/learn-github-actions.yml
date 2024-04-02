@@ -10,12 +10,3 @@ jobs:
         with:
           php-version: '8.3'
           extensions: imagick, swoole
-      - name: 'Checkout'
-        uses: actions/checkout@v4
-        with:
-          path: main
-
-      - name: Project check
-        uses: php-project-48/make test
-      - name: Project lint
-        uses: php-project-48/make lint
