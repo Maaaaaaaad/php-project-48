@@ -2,7 +2,7 @@
 
 namespace tests\GendiffTests;
 
-require_once [__DIR__] . 'src\Gendiff.php';
+require_once __DIR__ . '/../src/Gendiff.php';
 
 
 use PHPUnit\Framework\TestCase;
