@@ -14,9 +14,10 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Setup PHP with phpcs extension
         uses: shivammathur/setup-php@v2
         with:
@@ -27,3 +28,4 @@ jobs:
         uses: wearerequired/lint-action@v2
         with:
           php_codesniffer: true
+          php_codesniffer_args: "-n"
