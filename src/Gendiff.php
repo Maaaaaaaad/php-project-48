@@ -1,7 +1,6 @@
 <?php
 
-namespace Gendiff;
-
+namespace Differ\Gendiff;
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
@@ -46,5 +45,4 @@ function difference($file1, $file2, $format)
     $merge = array_merge($array, $array1);
 
     return json_encode($merge);
-
 }
