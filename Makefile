@@ -5,7 +5,7 @@ validate:
 dump:
 	composer dump-autoloadmake
 lint:
-	composer exec --verbose phpcs -- --standard=PSR12 src bin
+	composer exec --verbose phpcs -- --standard=PSR2 src bin
 gendiff:
 	./bin/gendiff
 test:

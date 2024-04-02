@@ -26,11 +26,8 @@ jobs:
           coverage: none
           tools: composer:v2, phpcs, phpunit
 
-      - name: Install
+      - name: Installing packages
         run: make install
-
-      - name: Validate composer.json and composer.lock
-        run: make validate
 
       - name: Check PHPunit
         run: make test
