@@ -27,15 +27,14 @@ jobs:
           tools: composer:v2, phpcs, phpunit
       - name: Installing packages
         run: make install
+
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v5.0.0
         env:
-          CC_TEST_REPORTER_ID: <code_climate_reporter_id>
+          CC_TEST_REPORTER_ID: secrets.CC_TEST_REPORTER_ID
         with:
           coverageCommand: npm run coverage
           debug: true
-
-
 
       - name: Check PHPunit
         run: make test
