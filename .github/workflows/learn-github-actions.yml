@@ -1,6 +1,12 @@
 name: GitHub project test
 run-name: ${{ github.actor }} is testing 🚀
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   Check-out-Git-repository:
     name: Run linters
@@ -17,7 +23,6 @@ jobs:
           php-version: "8.3"
           coverage: none
           tools: phpcs, phpunit
-
       - name: Run linters
         uses: wearerequired/lint-action@v2
         with:
