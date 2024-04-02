@@ -29,7 +29,7 @@ jobs:
       - name: Install PHP dependencies
         run: |
           composer install --prefer-dist --no-progress --no-ansi --no-interaction
-          echo "squizlabs/php_codesniffer/vandor/bin" >> https://github.com/PHPCSStandards/PHP_CodeSniffer/
+          echo "squizlabs/php_codesniffer/vendor/bin" >> $GITHUB_PATH
 
       - name: Run linters
         uses: wearerequired/lint-action@v2
