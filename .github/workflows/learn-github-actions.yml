@@ -17,5 +17,5 @@ jobs:
       - name: 'Compose'
         uses: php-actions/composer@v6
         with:
-          command: composer exec --verbose phpcs -- --standard=PSR12 src bin
+          command: exec --verbose phpcs -- --standard=PSR12 src bin
 
