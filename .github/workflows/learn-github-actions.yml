@@ -5,8 +5,15 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup PHP with PECL extension
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: imagick, swoole
       - name: 'Checkout'
         uses: actions/checkout@v4
+        with:
+          path: main
       - name: 'Compose'
         uses: php-actions/composer@v6
         with:
