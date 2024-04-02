@@ -2,7 +2,7 @@
 
 namespace tests\GendiffTests;
 
-require_once __DIR__ . '/../src/Gendiff.php';
+
 
 
 use PHPUnit\Framework\TestCase;
@@ -10,7 +10,7 @@ use function Differ\Gendiff\difference;
 
 
 
-class GendiffTest extends TestCase
+class TestGendiff extends TestCase
 {
     public function testGendiff()
     {
