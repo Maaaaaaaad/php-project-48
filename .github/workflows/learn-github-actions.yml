@@ -1,31 +1,37 @@
-name: GitHub project test
-run-name: ${{ github.actor }} is testing 🚀
+name: Lint
+
 on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
   push:
     branches:
       - main
   pull_request:
     branches:
       - main
+
 jobs:
-  Check-out-Git-repository:
+  run-linters:
     name: Run linters
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v3
 
-      - name: Setup PHP with phpcs extension
+      - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.3"
+          php-version: "7.4"
           coverage: none
-          tools: phpcs, phpunit
+          tools: composer
+
+      - name: Install PHP dependencies
+        run: |
+          composer install --prefer-dist --no-progress --no-ansi --no-interaction
+          echo "${PWD}/vendor/bin" >> $GITHUB_PATH
+
       - name: Run linters
         uses: wearerequired/lint-action@v2
         with:
           php_codesniffer: true
-
