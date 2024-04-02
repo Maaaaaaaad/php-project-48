@@ -25,6 +25,7 @@ jobs:
           php-version: "8.3"
           coverage: none
           tools: composer:v2, phpcs, phpunit
+
       - name: Installing packages
         run: make install
 
@@ -36,7 +37,7 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: make test-coverage
-          coverageLocations: build/logs/clover.xml:clover
+          coverageLocations: src/test/clover.xml:clover
           debug: true
 
       - name: Check PHPunit
