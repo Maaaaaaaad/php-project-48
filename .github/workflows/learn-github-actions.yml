@@ -24,7 +24,7 @@ jobs:
         with:
           php-version: "8.3"
           coverage: none
-          tools: phpcs, phpunit
+          tools: composer:v2, phpcs, phpunit
 
       - name: Check PHPunit
         run: make test
