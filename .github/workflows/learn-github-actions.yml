@@ -29,12 +29,16 @@ jobs:
         run: make install
 
       - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v5.0.0
+        uses: paambaati/codeclimate-action@v5
         env:
-          CC_TEST_REPORTER_ID: CODECLIMATE_COVER
+          CC_TEST_REPORTER_ID: ${{secrets.CODECLIMATE_COVER }}
         with:
-          coverageCommand: npm run coverage
+          coverageCommand: make test-coverage
+          coverageLocations: build/logs/clover.xml:clover
           debug: true
+
+      - name: Run test & publish code coverage
+        uses: paambaati/codeclimate-action@v5
 
       - name: Check PHPunit
         run: make test
