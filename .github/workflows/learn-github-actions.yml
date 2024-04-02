@@ -15,4 +15,4 @@ jobs:
         with:
           path: main
       - name: Project check
-        uses: php-project-48/make test
+        uses: make test
