@@ -14,5 +14,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: main
-      - name: Project check
-        uses: make test
+      - name: 'Compose'
+        uses: php-actions/composer@v6
+        with:
+          command: composer exec --verbose phpcs -- --standard=PSR12 src bin
+
