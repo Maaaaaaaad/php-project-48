@@ -10,7 +10,7 @@ use function Differ\Gendiff\difference;
 
 
 
-class TestGendiff extends TestCase
+class GendiffTest extends TestCase
 {
     public function testGendiff()
     {
