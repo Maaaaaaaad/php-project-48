@@ -12,8 +12,6 @@ jobs:
           extensions: imagick, swoole
       - name: 'Checkout'
         uses: actions/checkout@v4
-        with:
-          path: main
       - name: 'Compose'
         uses: php-actions/composer@v6
         with:
