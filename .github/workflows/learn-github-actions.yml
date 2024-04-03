@@ -29,10 +29,10 @@ jobs:
       - name: Installing packages
         run: make install
 
-      - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v5.0.0
-        env:
-          CC_TEST_REPORTER_ID: eece080283785fdba8970d5e821671b02e631330318f07a388d8a1f401aa5c07
 
+      - name: Test
+        run: make test
 
+      - name: lint
+        run: make lint
 
