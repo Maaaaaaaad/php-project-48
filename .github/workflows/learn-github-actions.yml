@@ -37,7 +37,8 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: make test-coverage
-          coverageLocations:  ${{github.workspace}}/test/clover.xml:clover
           debug: true
+          coverageLocations:  ${{github.workspace}}/test/clover.xml:clover
+
 
 
