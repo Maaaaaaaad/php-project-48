@@ -10,5 +10,3 @@ gendiff:
 	./bin/gendiff
 test:
 	composer exec --verbose phpunit tests
-test-coverage:
-    XDE1BUG_MODE=coverage composer exec --verbose phpunit tests -- --coverage-clover tests/clover.xml
