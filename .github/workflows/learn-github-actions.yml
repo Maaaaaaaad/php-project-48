@@ -28,6 +28,8 @@ jobs:
       - name: Installing packages
         run: make install
 
+      - name: PHPUnit testing
+        run: make test
 
       - name: Run test & publish code coverage
         uses: paambaati/codeclimate-action@v5
@@ -38,3 +40,5 @@ jobs:
           coverageLocations: ${{github.workplace}}/build/logs/clover.xml:clover
           debug: true
 
+      - name: Linter testing
+        run: make lint
