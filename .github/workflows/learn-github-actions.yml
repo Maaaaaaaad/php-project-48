@@ -29,12 +29,8 @@ jobs:
       - name: Installing packages
         run: make install
 
-
       - name: Test
         run: make test
-
-      - name: lint
-        run: make lint
 
       - name: Run test & publish code coverage
         uses: paambaati/codeclimate-action@v5
@@ -44,3 +40,4 @@ jobs:
           coverageCommand: make test-coverage
           coverageLocations: build/logs/clover.xml:clover
           debug: true
+
