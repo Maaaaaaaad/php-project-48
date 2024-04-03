@@ -28,9 +28,6 @@ jobs:
       - name: Installing packages
         run: make install
 
-      - name: Test
-        run: make test
-
       - name: Run test & publish code coverage
         uses: paambaati/codeclimate-action@v5
         env:
