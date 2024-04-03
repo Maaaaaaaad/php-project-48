@@ -1,8 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" colors="true" processIsolation="false" stopOnFailure="true" bootstrap="vendor/autoload.php" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.0/phpunit.xsd" cacheDirectory=".phpunit.cache" backupStaticProperties="false">
-    <source>
-        <include>
+<?xml version="1.0"?>
+<!-- works fine with PHPUnit-3.6.10 -->
+<phpunit>
+    <!-- you can keep your own options in these elements -->
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <!-- this is the path of the files included in your clover report -->
             <directory suffix=".php">./src</directory>
-        </include>
-    </source>
+        </whitelist>
+    </filter>
+    <logging>
+        <!-- and this is where your report will be written -->
+        <log type="coverage-clover" target="./clover.xml"/>
+    </logging>
 </phpunit>
