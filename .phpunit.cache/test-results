@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":{"tests\\GendiffTests\\GendiffTest::testGendiff":0.903,"tests\\GendiffTests\\GendiffTest::testjsonDiff":0.008}}
+{"version":1,"defects":[],"times":{"tests\\GendiffTests\\GendiffTest::testGendiff":0.903,"tests\\GendiffTests\\GendiffTest::testjsonDiff":0.008,"GendiffTest\\GendiffTest::testGenDiff":0.008,"YamlDiffTest\\YamldiffTest::testYamldiff":0.004}}

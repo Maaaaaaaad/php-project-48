@@ -11,7 +11,7 @@ if (file_exists($autoloadPath1)) {
 }
 
 
-function jsonDiff($file1, $file2)
+function genDiff($file1, $file2)
 {
     $array = [];
     $array1 = [];
@@ -40,5 +40,6 @@ function jsonDiff($file1, $file2)
     }
 
     $merge = array_merge($array, $array1);
+    var_dump($merge);
     return json_encode($merge);
 }
