@@ -1,39 +1,28 @@
 <?php
 
-namespace tests\GendiffTests;
+namespace tests\GendiffTest;
 
 
 
 use PHPUnit\Framework\TestCase;
-use function Differ\Gendiff\difference;
+use function Differ\Gendiff\jsonDiff;
 
 
 
 class GendiffTest extends TestCase
 {
-    public function testGendiff()
+    public function testjsonDiff()
     {
 
 
-        $data1 = __DIR__ . '/../tests/fixtures/file1.json';
-        $data2 = __DIR__ . '/../tests/fixtures/file2.json';
+        $data1 = json_decode(file_get_contents(__DIR__ . '/../tests/fixtures/file3.json'), true);
+        $data2 = json_decode(file_get_contents(__DIR__ . '/../tests/fixtures/file4.json'), true);
 
 
+        $jsonExp = '{"- follow":false,"- host":"hexlet.io","- proxy":"165.554.5.22","- timeout":15000,"+ host":"google.io","+ timeout":20,"+ verbose":false}';
 
-       $jsonExp = '{"- follow":false,"  host":"hexlet.io","- proxy":"123.234.53.22","- timeout":50,"+ timeout":20,"+ verbose":true}';
-
-
-
-        $diff = difference( $data1, $data2, "json");
-
-
+        $diff = jsonDiff( $data1, $data2);
 
         $this->assertEquals( (string) $diff, (string) $jsonExp, message: "The comparison is incorrect");
-
-
-
-
-
     }
-
 }
