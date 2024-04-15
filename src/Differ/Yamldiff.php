@@ -18,6 +18,4 @@ function yamlDiff($file1, $file2)
     $data2 = get_object_vars($file2);
 
     return genDiff($data1, $data2);
-
 }
-

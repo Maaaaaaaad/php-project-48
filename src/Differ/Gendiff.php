@@ -40,6 +40,5 @@ function genDiff($file1, $file2)
     }
 
     $merge = array_merge($array, $array1);
-    var_dump($merge);
     return json_encode($merge);
 }

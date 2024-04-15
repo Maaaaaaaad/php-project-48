@@ -1,6 +1,6 @@
 <?php
 
-namespace YamlDiffTest;
+namespace tests;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Yaml;

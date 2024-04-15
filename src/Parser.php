@@ -22,8 +22,8 @@ function pars($file1, $file2, $format)
         $data2 = json_decode(file_get_contents("$file2"), true);
 
         echo genDiff($data1, $data2);
-
-    } elseif (pathinfo($file1, PATHINFO_EXTENSION) === 'yml' || 'yaml' && (pathinfo($file2, PATHINFO_EXTENSION) === 'yml' || 'yaml')) {
+    } elseif (pathinfo($file1, PATHINFO_EXTENSION) === 'yml' || 'yaml' &&
+                (pathinfo($file2, PATHINFO_EXTENSION) === 'yml' || 'yaml')) {
         $data1 = Yaml::parse(file_get_contents("$file1"), Yaml::PARSE_OBJECT_FOR_MAP);
         $data2 = Yaml::parse(file_get_contents("$file2"), Yaml::PARSE_OBJECT_FOR_MAP);
 
