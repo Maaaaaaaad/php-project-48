@@ -9,7 +9,6 @@
     "autoload": {
         "files": [
             "src/Differ/Gendiff.php",
-            "src/Differ/Yamldiff.php",
             "src/Parser.php"
         ],
         "psr-4": {
