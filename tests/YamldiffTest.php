@@ -4,7 +4,7 @@ namespace tests;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Yaml;
-use function Differ\Gendiff\genDiff;
+use function Differ\diff\genDiff;
 
 class YamldiffTest extends TestCase
 {
@@ -16,10 +16,16 @@ class YamldiffTest extends TestCase
         $varsObj1 = get_object_vars($data1);
         $varsObj2 = get_object_vars($data2);
 
+        ksort( $varsObj1, SORT_STRING);
+        ksort($varsObj2, SORT_STRING);
+
+
         $yamlExp = '{"- follow":false,"  host":"hexlet.io","- proxy":"123.234.53.22","- timeout":50,"+ timeout":20,"+ verbose":true}';
 
-        $diff = genDiff($varsObj1, $varsObj2);
 
-        $this->assertEquals((string) $diff, (string) $yamlExp, message: "The comparison is incorrect");
+
+        $diff = json_encode(genDiff($varsObj1, $varsObj2));
+
+        $this->assertEquals((string) $diff, (string)$yamlExp, message: "The comparison is incorrect");
     }
 }

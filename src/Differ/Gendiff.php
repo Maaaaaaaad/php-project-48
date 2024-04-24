@@ -1,6 +1,6 @@
 <?php
 
-namespace Differ\Gendiff;
+namespace Differ\diff;
 
 $autoloadPath1 = __DIR__ . '/../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../../vendor/autoload.php';
@@ -13,13 +13,6 @@ if (file_exists($autoloadPath1)) {
 
 function genDiff($file1, $file2)
 {
-    $array = [];
-    $array1 = [];
-
-
-    ksort($file1, SORT_STRING);
-    ksort($file2, SORT_STRING);
-
 
     foreach ($file1 as $key => $item) {
         if (array_key_exists($key, $file2) && $item == $file2[$key]) {
@@ -31,6 +24,7 @@ function genDiff($file1, $file2)
         }
     }
 
+
     foreach ($file2 as $key => $item) {
         if (array_key_exists($key, $file1) && $item != $file1[$key]) {
             $array1 ["+ $key"] = $item;
@@ -39,6 +33,30 @@ function genDiff($file1, $file2)
         }
     }
 
-    $merge = array_merge($array, $array1);
-    return json_encode($merge);
+
+    var_dump($array);
+
+        return $array;
 }
+
+function iter($file1, $file2)
+{
+
+    foreach ($file1 as $key => $item) {
+        if (array_key_exists($key, $file2)) {
+            $array ["  $key"] =  genDiff($item, $file2[$key]);
+        } /*elseif (!array_key_exists($key, $file2)) {
+            $array ["- $key"] = $item;
+        }*/
+    }
+
+ /*   foreach ($file2 as $key => $item) {
+         if (!array_key_exists($key, $file1)) {
+            $array1 ["+ $key"] = $item;
+        }
+    }*/
+
+   // var_dump(array_merge($array, $array1));
+
+}
+
