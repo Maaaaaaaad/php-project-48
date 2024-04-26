@@ -34,7 +34,7 @@ function genDiff($file1, $file2)
     }
 
 
-    var_dump($array);
+
 
         return $array;
 }
@@ -45,18 +45,18 @@ function iter($file1, $file2)
     foreach ($file1 as $key => $item) {
         if (array_key_exists($key, $file2)) {
             $array ["  $key"] =  genDiff($item, $file2[$key]);
-        } /*elseif (!array_key_exists($key, $file2)) {
+        } elseif (!array_key_exists($key, $file2)) {
             $array ["- $key"] = $item;
-        }*/
+        }
     }
 
- /*   foreach ($file2 as $key => $item) {
+  foreach ($file2 as $key => $item) {
          if (!array_key_exists($key, $file1)) {
             $array1 ["+ $key"] = $item;
         }
-    }*/
+    }
 
-   // var_dump(array_merge($array, $array1));
+   var_dump(array_merge($array, $array1));
 
 }
 
