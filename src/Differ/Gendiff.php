@@ -36,7 +36,7 @@ function genDiff($file1, $file2)
 
 
 
-        return $array;
+        return (array_merge($array, $array1));
 }
 
 function iter($file1, $file2)
@@ -51,9 +51,12 @@ function iter($file1, $file2)
     }
 
   foreach ($file2 as $key => $item) {
+
          if (!array_key_exists($key, $file1)) {
-            $array1 ["+ $key"] = $item;
-        }
+             $array1 ["+ $key"] = $item;
+        } else {
+             $array1 ["+ $key"] = genDiff($item, $file1[$key]);
+         }
     }
 
    var_dump(array_merge($array, $array1));
