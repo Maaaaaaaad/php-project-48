@@ -22,6 +22,9 @@ function pars($file1, $file2, $format)
         $data1 = json_decode(file_get_contents("$file1"), true);
         $data2 = json_decode(file_get_contents("$file2"), true);
 
+/*        ksort( $data1, SORT_STRING);
+        ksort($data2, SORT_STRING);*/
+
 
         echo  json_encode(iter($data1, $data2));
 
