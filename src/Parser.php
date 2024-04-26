@@ -25,8 +25,8 @@ function pars($file1, $file2, $format)
 /*        ksort( $data1, SORT_STRING);
         ksort($data2, SORT_STRING);*/
 
-
-        echo  json_encode(iter($data1, $data2));
+        //echo json_encode(genDiff($varsObj1, $varsObj2));
+        var_dump(iter($data1, $data2));
 
     } elseif (pathinfo($file1, PATHINFO_EXTENSION) === 'yml' || 'yaml' &&
         (pathinfo($file2, PATHINFO_EXTENSION) === 'yml' || 'yaml')) {
