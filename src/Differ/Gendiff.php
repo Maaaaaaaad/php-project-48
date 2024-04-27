@@ -2,6 +2,8 @@
 
 namespace Differ\diff;
 
+use function Functional\contains;
+
 $autoloadPath1 = __DIR__ . '/../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../../vendor/autoload.php';
 if (file_exists($autoloadPath1)) {
@@ -41,21 +43,57 @@ function genDiff($file1, $file2)
 
 function iter($file1, $file2)
 {
-    if (is_array($file1)) {
-        var_dump($file1);
+/*    foreach ($file1 as $key => $item) {
+
+        if (!array_key_exists($key, $file2)) {
+            $array ["-  $key"] = $item;
+        } elseif (is_array($item) && array_key_exists($key, $file2)) {
+            foreach ($item as $subKey => $subItem) {
+                if (is_array($subItem && is_array($file2[$key][$subKey])) ) {
+                    $array["  $key"] = $array[$subKey] = $item;
+                } elseif (!is_array($subItem)) {
+                    if ($subItem == $file2[$key][$subKey]) {
+                        $array["  $key"] = $array[" $subKey"] = $subItem;
+                    } elseif ($subItem != $file2[$key][$subKey]) {
+                        $array["  $key"] = $array["-  $subKey"] = $subItem;
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    var_dump($array);*/
+
+
+
+
+}
+
+
+
+
+
+
+
+/*    if (is_array($file1)) {
         foreach ($file1 as $key => $item) {
                 if (array_key_exists($key, $file2)) {
                     $array ["  $key"] = is_array($item) ? iter($item,$file2[$key]): $item;
 
                 } elseif (!array_key_exists($key, $file2)) {
-                    $array ["- $key"] = $item;
+                    $array ["- $key"] = is_array($item) ? iter($item,$file2[$key]): $item;
                 }
             }
 
-    } //$array = genDiff($file1, $file2);
+    } else {
+        //$array = genDiff($file1, $file2);
+    }
 
 
-  /*foreach ($file2 as $key => $item) {
+
+  foreach ($file2 as $key => $item) {
 
          if (!array_key_exists($key, $file1)) {
              $array1 ["+ $key"] = $item;
@@ -64,9 +102,9 @@ function iter($file1, $file2)
          }
     }
 
-    */
-    //var_dump(array_merge($array));
+
+    var_dump($array);
     return $array;
 
-}
+}*/
 
