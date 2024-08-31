@@ -22,16 +22,9 @@ Usage:
 Options:
   -h --help                 Show this screen
   -v --version              Show version
-  --format <frm>            Report format | [default: stylish]
 DOC;
 
 $args = Docopt::handle($doc, array('version' => 'gendiff 0.1'));
-
-$format = $args['--format'];
-$firstFilePath = realpath($args['<firstFile>']);
-$secondFilePath = realpath($args['<secondFile>']);
-
-
 
 
 
