@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Differ\Formaters\Plain;
 
 
