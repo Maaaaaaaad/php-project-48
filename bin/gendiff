@@ -9,9 +9,10 @@ if (file_exists($autoloadPathGlobal)) {
     require_once $autoloadPathLocal;
 }
 
-
+use function Differ\Differ\genDiff;
 
 $doc = <<<DOC
+
 Generate diff
 
 Usage:
@@ -22,9 +23,11 @@ Usage:
 Options:
   -h --help                 Show this screen
   -v --version              Show version
+  --format <frm>            Report format [plain] | [json] | [default: stylish]
 DOC;
 
 $args = Docopt::handle($doc, array('version' => 'gendiff 0.1'));
 
+$diff = genDiff($args['<firstFile>'], $args['<secondFile>'], $args['--format']);
 
-
+echo ($diff);
